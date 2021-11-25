@@ -606,10 +606,6 @@ const deserializeAccount = (data: Buffer) => {
 
 // TODO: expose in spl package
 const deserializeMint = (data: Buffer) => {
-  if (data.length !== MintLayout.span) {
-    throw new Error("Not a valid Mint");
-  }
-
   const mintInfo = MintLayout.decode(data);
 
   if (mintInfo.mintAuthorityOption === 0) {
